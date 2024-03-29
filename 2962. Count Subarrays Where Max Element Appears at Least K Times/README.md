@@ -21,4 +21,4 @@
 4. **Returning the result**:
    - Once we've processed all elements in the array, we return the total count of subarrays where the maximum element appears at least `k` times.
 
-[Back to table](#explanations)
+[Back to table](../README.md/#explanations)
