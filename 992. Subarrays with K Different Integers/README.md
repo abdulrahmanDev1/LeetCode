@@ -18,3 +18,5 @@
 **Subtraction**: By subtracting the count of subarrays with at most k - 1 distinct elements from the count of subarrays with at most k distinct elements, we effectively remove the subarrays with fewer than k distinct elements. This leaves us with only the subarrays that have exactly k distinct elements.
 
 So, the expression `countSubarrays(nums, k) - countSubarrays(nums, k - 1)` gives us the count of subarrays with exactly k distinct elements, which is what we want.
+
+[Back to table](../README.md/#explanations)
