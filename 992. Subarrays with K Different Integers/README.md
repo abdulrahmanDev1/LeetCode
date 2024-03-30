@@ -1,3 +1,44 @@
+``` javascript
+var subarraysWithKDistinct = function (nums, k) {
+
+  const countSubarrays = (nums, k) => {
+    let count = 0;
+    let left = 0;
+    let distinctCount = 0;
+    const frequency = new Map();
+
+    for (let right = 0; right < nums.length; right++) {
+      const num = nums[right];
+      if (!frequency.has(num) || frequency.get(num) === 0) {
+        distinctCount++;
+      }
+      frequency.set(num, (frequency.get(num) || 0) + 1);
+
+      while (distinctCount > k) {
+        const leftNum = nums[left];
+        frequency.set(leftNum, frequency.get(leftNum) - 1);
+        if (frequency.get(leftNum) === 0) {
+          distinctCount--;
+        }
+        left++;
+      }
+      count += right - left + 1;
+    }
+    return count;
+  };
+
+
+  return countSubarrays(nums, k) - countSubarrays(nums, k - 1);
+};
+
+// Example usage:
+const nums = [1, 2, 1, 2, 3];
+const k = 2;
+console.log(subarraysWithKDistinct(nums, k));
+```
+### Explanation and Iterations Table for `subarraysWithKDistinct` Function
+
+
 | Right Pointer Index | Value | Window | Count Before Update | Count After Update | Explanation                                                                                                                                                                                |
 | ------------------- | ----- | ------ | ------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | 0                   | 1     | [0, 0] | 0                   | 1                  | At index 0, the right pointer is at 1. The window is [0, 0], indicating that the current subarray contains only the element at index 0. Count before update is 0.                          |
