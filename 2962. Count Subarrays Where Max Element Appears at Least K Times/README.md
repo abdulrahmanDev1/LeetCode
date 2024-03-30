@@ -1,3 +1,32 @@
+``` javascript
+var countSubarrays = (nums, k) => {
+  let appearances = 0;
+  let maxCount = 0;
+  let left = 0;
+  const max = Math.max(...nums);
+
+  for (let right = 0; right < nums.length; right++) {
+    if (nums[right] === max) {
+      maxCount++;
+    }
+
+    while (maxCount >= k) {
+      appearances += nums.length - right;
+      if (nums[left] === max) {
+        maxCount--;
+      }
+      left++;
+    }
+  }
+
+  return appearances;
+};
+
+console.log(countSubarrays([1, 3, 2, 3, 3], 2)); //6
+```
+
+
+
 # Count Subarrays Where Max Element Appears at Least K Times
 
 1. **Initialization**:
@@ -21,4 +50,4 @@
 4. **Returning the result**:
    - Once we've processed all elements in the array, we return the total count of subarrays where the maximum element appears at least `k` times.
 
-[Back to table](#explanations)
+[Back to table](../README.md/#explanations)
