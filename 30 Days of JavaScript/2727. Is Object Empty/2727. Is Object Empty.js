@@ -1,3 +1,5 @@
+//Problem link: https://leetcode.com/problems/is-object-empty/description
+
 /**
  * Checks whether an object or array is empty.
  * @param {Object|Array} obj - The object or array to check for emptiness.
