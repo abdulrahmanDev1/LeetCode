@@ -1,3 +1,4 @@
+// Problem link: https://leetcode.com/problems/subarrays-with-k-different-integers/description/
 /**
  * Counts the number of subarrays with exactly k distinct elements.
  * @param {number[]} nums - The array of integers.
